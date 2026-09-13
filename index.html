@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Stock Opname</title>
+    <title>Katalog Store</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Mencegah munculnya scrollbar ganda */
+            overflow: hidden;
+            background-color: #000; /* Menyamakan warna background */
         }
-        .iframe-container {
-            position: absolute;
-            top: -28px; /* Menggeser halaman ke atas untuk memotong banner Google */
-            left: 0;
-            width: 100%;
-            height: calc(100% + 28px); /* Menyesuaikan kembali tinggi layar */
-        }
-        iframe {
+        .wrapper {
+            position: relative;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: -30px; /* Memotong banner */
+            left: 0;
+            width: 100%;
+            height: calc(100% + 60px); /* Menambah tinggi agar bawah tidak terpotong */
             border: none;
         }
     </style>
 </head>
 <body>
-
-    <div class="iframe-container">
-        <!-- GANTI TULISAN DI BAWAH INI DENGAN LINK GOOGLE APPS SCRIPT KAMU -->
+    <div class="wrapper">
         <iframe src="https://script.google.com/macros/s/AKfycbwMcTRae0XCDi_BBWDaebNWgLgUg_WtDbUErbL2cyR1FJME1wHHaIyHbDcm9ND7Q4aSlg/exec" allow="camera"></iframe>
     </div>
-
 </body>
 </html>
