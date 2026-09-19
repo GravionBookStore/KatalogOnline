@@ -624,7 +624,7 @@
     let checkoutState = { targetCabang: "", subtotal: 0, ongkir: 0, total: 0, receiptBase64: "" };
     let currentOrderFilter = 'active';
 
-    let cabangList = ["Toko Miko", "Pam Miko", "Toko Pusat", "New Store"];
+    let cabangList = ["Toko Miko", "Pam Miko", "Pam MIM", "Toko Pusat"];
     let qrisSettings = { image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg", name: "TOKO BUKU VIRION" };
     
     let storeLogoSettings = { type: "icon", value: "fa-solid fa-book-open" };
@@ -1011,7 +1011,7 @@
     function handleAdminSearch() { renderAdminMasterList(masterData); }
 
     function openBarangModalBaru() {
-        document.getElementById('admin-input-idbarang').value = ''; document.getElementById('admin-input-namabarang').value = ''; document.getElementById('admin-input-cabangbarang').value = (cabangList.length > 0) ? cabangList[0] : 'Toko Pusat'; document.getElementById('admin-input-stok').value = ''; document.getElementById('admin-input-rak').value = ''; document.getElementById('admin-input-hargabarang').value = ''; openAdminModal('modal-admin-barang');
+        document.getElementById('admin-input-idbarang').value = ''; document.getElementById('admin-input-namabarang').value = ''; document.getElementById('admin-input-cabangbarang').value = (cabangList.length > 0) ? cabangList[0] : 'Pam MIM'; document.getElementById('admin-input-stok').value = ''; document.getElementById('admin-input-rak').value = ''; document.getElementById('admin-input-hargabarang').value = ''; openAdminModal('modal-admin-barang');
     }
 
     async function simpanDataBarangMaster() {
