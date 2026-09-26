@@ -591,7 +591,7 @@
     // =========================================================================================
     // KONFIGURASI URL API GOOGLE APPS SCRIPT
     // =========================================================================================
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbx8yTF2iF9Lt4HtVBOwEkbGy1cfNTPZ7mQRsy1sHeTswQxhnI95aU2Ix0hEyGGgGv5o0w/exec"; 
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbxerrUzS1R84bwKxONox6MDdOGq_SnSbnP_lyTVC-h6ZVObvlR2E6hYhbg7eNJNfeg82g/exec"; 
 
     async function apiCall(actionName, payloadData = {}) {
         if (GAS_URL === "URL_WEB_APP_GAS_ANDA_DISINI" || !GAS_URL) {
@@ -637,7 +637,7 @@
     let checkoutState = { targetCabang: "", subtotal: 0, ongkir: 0, total: 0, receiptBase64: "" };
     let currentOrderFilter = 'active';
 
-    let cabangList = ["Toko Miko", "Pam Miko", "Pam MIM", "New"];
+    let cabangList = [];
     let qrisSettings = { image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg", name: "TOKO BUKU Gravion" };
     let storeLogoSettings = { type: "icon", value: "fa-solid fa-book-open" };
     let promoBannerSettings = {
@@ -763,9 +763,6 @@
         let savedUser = localStorage.getItem('Gravion_user');
         if (savedUser) { try { let parsed = JSON.parse(savedUser); if (parsed && parsed.role) currentUser = parsed; } catch(e){} }
         
-        let savedCabang = localStorage.getItem('Gravion_cabang_list');
-        if(savedCabang) { try { cabangList = JSON.parse(savedCabang); } catch(e){} }
-        
         let savedQris = localStorage.getItem('Gravion_qris');
         if(savedQris) { try { qrisSettings = JSON.parse(savedQris); } catch(e){} }
         
@@ -819,6 +816,10 @@
                         if(res.data.qrisSettings) {
                             qrisSettings = res.data.qrisSettings;
                             localStorage.setItem('Gravion_qris', JSON.stringify(qrisSettings));
+                        }
+                        if(res.data.cabangList && Array.isArray(res.data.cabangList)) { 
+                            cabangList = res.data.cabangList; 
+                            renderCabangDropdowns(); 
                         }
                         if(res.data.cabangList) {
                             cabangList = res.data.cabangList;
